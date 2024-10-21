@@ -1,0 +1,54 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <ActionBar title="Project Daedalus" class="action-bar">
+        <NavigationButton visibility="collapsed" />
+        <ActionItem ios.position="right" android.position="actionBar">
+            <Label text="&#xf0f3;" class="fas accent-cyan" fontSize="20" />
+        </ActionItem>
+    </ActionBar>
+
+    <GridLayout rows="auto, *, auto">
+        <!-- Multimodal Input Area -->
+        <GridLayout row="0" columns="*, auto" class="p-4">
+            <TextField col="0" hint="Ask me anything..." class="input accent-cyan" />
+            <Label col="1" text="&#xf130;" class="fas accent-pink" fontSize="24" />
+        </GridLayout>
+
+        <!-- Main Content Area -->
+        <ScrollView row="1">
+            <StackLayout class="p-4">
+                <!-- Recent Interactions -->
+                <Label text="Recent Interactions" class="h2 accent-cyan" />
+                <ListView items="{{ recentInteractions }}" height="200">
+                    <ListView.itemTemplate>
+                        <Label text="{{ description }}" textWrap="true" class="p-2" />
+                    </ListView.itemTemplate>
+                </ListView>
+
+                <!-- Ongoing Tasks -->
+                <Label text="Ongoing Tasks" class="h2 accent-cyan" marginTop="20" />
+                <ListView items="{{ ongoingTasks }}" height="200">
+                    <ListView.itemTemplate>
+                        <GridLayout columns="*, auto" class="p-2">
+                            <Label col="0" text="{{ name }}" textWrap="true" />
+                            <Progress col="1" value="{{ progress }}" maxValue="100" width="50" />
+                        </GridLayout>
+                    </ListView.itemTemplate>
+                </ListView>
+
+                <!-- Quick Actions -->
+                <GridLayout columns="*, *" class="m-t-20">
+                    <Button col="0" text="New Project" tap="{{ onNewProject }}" class="btn" />
+                    <Button col="1" text="AI Insights" tap="{{ onAIInsights }}" class="btn" />
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <GridLayout row="2" columns="*, *, *, *" class="p-4">
+            <Label col="0" text="&#xf015;" class="fas accent-cyan" fontSize="24" />
+            <Label col="1" text="&#xf002;" class="fas accent-cyan" fontSize="24" />
+            <Label col="2" text="&#xf07b;" class="fas accent-cyan" fontSize="24" />
+            <Label col="3" text="&#xf013;" class="fas accent-cyan" fontSize="24" />
+        </GridLayout>
+    </GridLayout>
+</Page>

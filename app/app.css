@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+  background-color: #0A0418;
+}
+
+.accent-cyan {
+  color: #00FFFF;
+}
+
+.accent-pink {
+  color: #FF00FF;
+}
+
+.btn {
+  background-color: #00FFFF;
+  color: #0A0418;
+  font-weight: bold;
+  padding: 10 20;
+  border-radius: 5;
+}
+
+.btn:active {
+  background-color: #FF00FF;
+}
